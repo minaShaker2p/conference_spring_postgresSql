@@ -1,6 +1,8 @@
 package com.mina.conferencedemo.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.sun.istack.NotNull;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -23,8 +25,12 @@ public class Session {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long session_id;
+    @ApiModelProperty(value = "it is session name", required = true)
+    @NotNull
     private String session_name;
+    @NotNull
     private String session_description;
+    @NotNull
     private Integer session_length;
 
     @ManyToMany
